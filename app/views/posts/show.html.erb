@@ -1,0 +1,6 @@
+<%= attachment_image_tag(@post, :image, :fill, 100, 100, fallback: "no-image-icon.jpg")%>
+<%= @post.introduction %>
+<% if @post.user == current_user %>
+  <%= link_to "編集する", edit_post_path(@post) %>
+  <%= link_to "投稿削除", post_path(@post), method: :delete %>
+<% end %>
