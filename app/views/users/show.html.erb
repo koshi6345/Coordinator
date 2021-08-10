@@ -1,0 +1,4 @@
+プロフィール画像 <%= attachment_image_tag(@user, :image, :fill, 100, 100, fallback: "no_image.jpg")%>
+名前 <%= @user.name %>
+自己紹介文 <%= @user.introduction %>
+<%= link_to "プロフィール編集", edit_user_path %>
