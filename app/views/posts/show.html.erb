@@ -1,11 +1,23 @@
 <div class="container">
-  <div clsss="row">
+  <div clsss="row my-3">
     <div class="col-12">
       <%= attachment_image_tag(@post, :image, :fill, 100, 100, fallback: "no-image-icon.jpg")%>
       <%= @post.introduction %>
       <% if @post.user == current_user %>
         <%= link_to "編集する", edit_post_path(@post) %>
         <%= link_to "投稿削除", post_path(@post), method: :delete %>
+      <% end %>
+      <%= @post.comments.count %> 件のコメント
+      <% @post.comments.each do |post_comment| %>
+        <%= post_comment.user.name %>
+        <%= post_comment.comment %>
+        <% if @comment.user == current_user %>
+          <%= link_to "コメント削除", post_comment_path(comment.post, comment), method: :destroy %>
+        <% end %>
+      <% end %>
+      <%= form_with(model:[@post, @comment], local: true) do |f| %>
+        <%= f.text_field :comment, rows:'5',placeholder: "コメントをここに" %>
+        <%= f.submit "送信する" %>
       <% end %>
     </div>
   </div>
