@@ -1,5 +1,5 @@
 <div class="container">
-  <div clsss="row">
+  <div clsss="row my-3">
     <div class="col-12">
       <% @posts.each do |posts| %>
         <p>
@@ -9,6 +9,9 @@
         </p>
         <p>
          <%= posts.introduction %>
+        </p>
+        <p>
+          <%= link_to "#{posts.comments.count} コメント", post_path(posts.id) %>
         </p>
       <% end %>
     </div>
