@@ -1,4 +1,13 @@
-プロフィール画像 <%= attachment_image_tag(@user, :image, :fill, 100, 100, fallback: "no_image.jpg")%>
-名前 <%= @user.name %>
-自己紹介文 <%= @user.introduction %>
-<%= link_to "プロフィール編集", edit_user_path %>
+<div class="container">
+  <div clsss="row">
+    <div class="col-12">
+      <%= link_to new_post_path do %>
+        <div class="fas fa-plus h4 plus-botton"></div>
+      <% end %>
+      プロフィール画像 <%= attachment_image_tag(@user, :image, :fill, 100, 100, fallback: "no_image.jpg")%>
+      名前 <%= @user.name %>
+      自己紹介文 <%= @user.introduction %>
+      <%= link_to "プロフィール編集", edit_user_path %>
+    </div>
+  </div>
+</div>

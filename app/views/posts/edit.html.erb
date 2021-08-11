@@ -1,5 +1,7 @@
-<%= form_with model:@post, local: true do |f| %>
-  <%= f.attachment_field :image %>
-  <%= f.text_area :introduction %>
-  <%= f.submit %>
-<% end %>
+<div class="container">
+  <div clsss="row">
+    <div class="col-12">
+      <%= render 'form', posts: @post %>
+    </div>
+  </div>
+</div>
