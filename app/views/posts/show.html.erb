@@ -7,17 +7,42 @@
         <%= link_to "編集する", edit_post_path(@post) %>
         <%= link_to "投稿削除", post_path(@post), method: :delete %>
       <% end %>
-      <%= @post.comments.count %> 件のコメント
+      <% if @post.favorited_by?(current_user) %>
+        <p>
+          <%= link_to post_favorits_path(@post), method: :delete do %>
+            ♥<%= @post.favorits.count %> いいね
+          <% end %>
+        </p>
+        <% else %>
+        <p>
+          <%= link_to post_favorits_path(@post), method: :post do %>
+            ♡<%= @post.favorits.count %> いいね
+          <% end %>
+        </p>
+      <% end %>
+      <p>
+        <%= @post.comments.count %> 件のコメント
+      </p>
       <% @post.comments.each do |post_comment| %>
-        <%= post_comment.user.name %>
-        <%= post_comment.comment %>
-        <% if @comment.user == current_user %>
-          <%= link_to "コメント削除", post_comment_path(comment.post, comment), method: :destroy %>
-        <% end %>
+        <p>
+          <%= post_comment.user.name %>
+        </p>
+        <p>
+          <%= post_comment.comment %>
+        </p>
+        <p>
+          <% if post_comment.user == current_user %>
+            <%= link_to "コメント削除", post_comment_path(post_comment, @post), method: :delete %>
+          <% end %>
+        </p>
       <% end %>
       <%= form_with(model:[@post, @comment], local: true) do |f| %>
-        <%= f.text_field :comment, rows:'5',placeholder: "コメントをここに" %>
-        <%= f.submit "送信する" %>
+        <p>
+          <%= f.text_field :comment, rows:'5',placeholder: "コメントをここに" %>
+        </p>
+        <p>
+          <%= f.submit "送信する" %>
+        </p>
       <% end %>
     </div>
   </div>
