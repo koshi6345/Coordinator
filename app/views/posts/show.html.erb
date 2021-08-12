@@ -32,7 +32,7 @@
         </p>
         <p>
           <% if post_comment.user == current_user %>
-            <%= link_to "コメント削除", post_comment_path(post_comment, @post), method: :delete %>
+            <%= link_to "コメント削除", post_comment_path(@post, post_comment), method: :delete %>
           <% end %>
         </p>
       <% end %>
