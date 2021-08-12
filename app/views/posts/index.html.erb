@@ -13,6 +13,9 @@
         <p>
           <%= link_to "#{posts.comments.count} コメント", post_path(posts.id) %>
         </p>
+        <p>
+          <%= link_to "#{posts.favorits.count} いいね", post_path(posts.id) %>
+        </p>
       <% end %>
     </div>
   </div>
