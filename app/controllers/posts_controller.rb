@@ -10,8 +10,10 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    tag_list = params[:post][:names].split(",")
     @post.user_id = current_user.id
-    @post.save!
+    @post.save
+    @post.tags_save(tag_list)
     redirect_to root_path
   end
 

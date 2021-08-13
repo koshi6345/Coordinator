@@ -1,5 +1,6 @@
 <%= form_with model:posts, local: true do |f| %>
   <%= f.attachment_field :image %>
   <%= f.text_area :introduction %>
+  <%= f.text_field :names, placeholder: ",で区切ってください" %>
   <%= f.submit %>
 <% end %>
