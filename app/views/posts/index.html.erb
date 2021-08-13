@@ -19,6 +19,11 @@
          <%= posts.introduction %>
         </p>
         <p>
+          <% posts.tags.each do |tag| %>
+            <%= tag.name %>
+          <% end %>
+        </p>
+        <p>
           <%= link_to "#{posts.comments.count} コメント", post_path(posts.id) %>
         </p>
         <p>
