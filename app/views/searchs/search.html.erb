@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row my-3">
+    <div class="col-lg-12">
+      <% if @range == "ユーザー" %>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>プロフィール画像</th>
+              <th>名前</th>
+              <th>紹介文</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @users.each do |user| %>
+              <tr>
+                <td>
+                  <%= link_to user_path(user) do %>
+                    <%= attachment_image_tag(user, :image, :fill, 50, 50, fallback: "no_image.jpg") %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= user.name %>
+                </td>
+                <td>
+                  <%= user.introduction %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% else %>
+        <% @tags.each do |tag| %>
+          <% tag.posts.each do |tag_post| %>
+            <p>
+              <%= link_to user_path(tag_post.user) do %>
+                <%= attachment_image_tag(tag_post.user, :image, :fill, 50, 50, fallback: "no_image.jpg") %>
+              <% end %>
+            </p>
+            <p>
+              <%= tag_post.user.name %>
+            </p>
+            <p>
+              <%= link_to post_path(tag_post) do %>
+                <%= attachment_image_tag(tag_post, :image, :fill, 200, 300, fallback: "no_image.jpg") %>
+              <% end %>
+            </p>
+            <p>
+              <%= tag_post.introduction %>
+            </p>
+            <% tag_post.tags.each do |tag_post_tag| %>
+              <p>
+                <%= tag_post_tag.name %>
+              </p>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
