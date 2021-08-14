@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resource  :favorits,      only:   [:create, :destroy]
   end
   resources :tags,          only:   [:create]
-  resources :searchs,       only:   [:index]
+  get 'search' => 'searchs#search'
   resources :rooms,         only:   [:create, :show]
   resources :messages,      only:   [:create]
 end

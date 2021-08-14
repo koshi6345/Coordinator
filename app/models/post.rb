@@ -11,17 +11,15 @@ class Post < ApplicationRecord
   end
 
   def tags_save(tag_list)
-
     if self.tags != nil
       tag_relationshipss_records = TagRelationship.where(post_id: self.id)
       tag_relationshipss_records.destroy_all
     end
-
+    
     tag_list.each do |tag|
       inspected_tag = Tag.where(name: tag).first_or_create
       self.tags << inspected_tag
     end
-
   end
-
+ 
 end
