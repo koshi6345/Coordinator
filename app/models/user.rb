@@ -24,14 +24,6 @@ class User < ApplicationRecord
   def following?(user)
     following_user.include?(user)
   end
-
-  # def self.looks(searchs, keywords)
-  #   if searchs == "partial_match"
-  #     @users = User.where("name LIKE ?", "%#{keywords}%")
-  #   else
-  #     @users = User.all
-  #   end
-  # end
   
   def self.search(keyword)
     @users = User.where("name LIKE ?", "%#{keyword}%")
