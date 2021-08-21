@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resource :relationships, only:   [:create, :destroy]
   end
   root to: 'posts#index'
+  get 'sort' => 'posts#sort'
   resources :posts,         except: [:index] do
     resources :comments,      only:   [:create, :destroy]
     resource  :favorits,      only:   [:create, :destroy]

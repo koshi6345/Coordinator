@@ -69,6 +69,8 @@ gem 'kaminari','~> 1.2.1'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'dotenv-rails'
+gem 'impressionist', '~> 1.6.1'
+gem 'pry-byebug'
 group :production do
   gem 'mysql2'
 end
