@@ -15,11 +15,30 @@ class Post < ApplicationRecord
       tag_relationshipss_records = TagRelationship.where(post_id: self.id)
       tag_relationshipss_records.destroy_all
     end
-    
+
     tag_list.each do |tag|
       inspected_tag = Tag.where(name: tag).first_or_create
       self.tags << inspected_tag
     end
   end
- 
+
+  is_impressionable counter_cache: true
+
+  def self.sort(selection)
+    case selection
+    when 'new'
+      return all.order(created_at: :DESC)
+    when 'old'
+      return all.order(created_at: :ASC)
+    when 'like'
+      return all.includes(:favorits).sort {|a,b| b.favorits.count <=> a.favorits.count}
+    when 'dislike'
+      return all.includes(:favorits).sort {|a,b| a.favorits.count <=> b.favorits.count}
+    when 'view'
+      return all.order(impressions_count: :DESC)
+    when 'not_view'
+      return all.order(impressions_count: :ASC)
+    end
+  end
+
 end

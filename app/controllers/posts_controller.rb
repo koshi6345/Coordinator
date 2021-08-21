@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
+  impressionist actions: [:index, :show]
 
   def index
-    @posts = Post.all
+    @posts = Post.page(params[:page]).reverse_order
   end
 
   def new
@@ -21,6 +22,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comment = Comment.new
     @user = @post.user
+    impressionist(@post, nil, unique: [:impressionable_id, :ip_address])
   end
 
   def edit
@@ -37,6 +39,12 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
     redirect_to root_path
+  end
+
+  def sort
+    selection = params[:keyword]
+    @posts = Kaminari.paginate_array(Post.sort(selection)).page(params[:page])
+    # binding.pry
   end
 
   private
