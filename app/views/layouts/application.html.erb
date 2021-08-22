@@ -11,37 +11,47 @@
 
   <body>
     <header>
-      <nav class="navbar navbar-dark bg-dark">
-　      <% if user_signed_in? %>
-          <li>
-            <%= link_to "マイページ", user_path(current_user) %>
-          </li>
-          <li>
-            <%= link_to "投稿一覧ページ", root_path %>
-          </li>
-          <li>
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-          </li>
-        <% else %>
-          <li>
-            <%= link_to "新規登録", new_user_registration_path %>
-          </li>
-          <li>
-            <%= link_to "ログイン", new_user_session_path %>
-          </li>
-        <% end %>
-        <%= form_with url: search_path, method: :get, local: true do |f| %>
-          <%= f.select :range, options_for_select([['ユーザー'], ['タグ']]) %>
-          <%#= f.select :search, options_for_select(["partial_match"]) %>
-          <%= f.text_field :keyword, value: @keyword %>
-          <%= f.submit "検索" %>
-        <% end %>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <div class="h1 text-light my-auto">Coordinator</div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    　      <% if user_signed_in? %>
+              <li>
+                <%= link_to "マイページ", user_path(current_user),class: 'fas fa-user nav-link text-light' %>
+              </li>
+              <li>
+                <%= link_to "投稿一覧ページ", root_path,class: 'fas fa-paste nav-link text-light' %>
+              </li>
+              <li>
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete,class: 'fas fa-sign-out-alt nav-link text-light' %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to "新規登録", new_user_registration_path,class: 'fas fa-user-plus nav-link text-light' %>
+              </li>
+              <li>
+                <%= link_to "ログイン", new_user_session_path,class: 'fas fa-sign-in-alt nav-link text-light' %>
+              </li>
+              <li>
+                <%= link_to "投稿一覧ページ", root_path,class: 'fas fa-paste nav-link text-light' %>
+              </li>
+            <% end %>
+            <%= form_with url: search_path, method: :get, local: true do |f| %>
+              <%= f.select :range, options_for_select([['ユーザー'], ['タグ']]) %>
+              <%= f.text_field :keyword, value: @keyword %>
+              <%= f.submit "検索" %>
+            <% end %>
+          </div>
+        </div>
 　　　</nav>
     </header>
     <%= yield %>
     <footer>
       <nav class="navbar navbar-dark bg-dark">
-        <div class="text-white">koushikoushikoushi</div>
+        <div class="text-light mx-auto">koushikoushikoushi</div>
       </nav>
     </footer>
   </body>
