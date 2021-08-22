@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   attachment :image
-  has_many :books, dependent: :destroy
+  has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :favorits, dependent: :destroy
   has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
@@ -26,9 +26,9 @@ class User < ApplicationRecord
   def following?(user)
     following_user.include?(user)
   end
-  
+
   def self.search(keyword)
     @users = User.where("name LIKE ?", "%#{keyword}%")
   end
-  
+
 end

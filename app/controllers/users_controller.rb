@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @posts = @user.posts.page(params[:page])
     @current_user_entrie = Entry.where(user_id: current_user.id)
     @user_entrie = Entry.where(user_id: @user.id)
     unless @user.id == current_user.id
