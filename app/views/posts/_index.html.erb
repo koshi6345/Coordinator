@@ -6,7 +6,7 @@
 </div>
 <div class="index-flex">
   <% posts.each do |post_one| %>
-    <div class="border p-2 m-1">
+    <div class="post-background-color border p-2 m-1">
       <div class="py-2">
         <%= link_to user_path(post_one.user) do %>
           <%= attachment_image_tag post_one.user, :image, :fill, 100, 100, fallback: "no_image.jpg", class: "img" %>

@@ -1,8 +1,8 @@
 <div class="container">
   <div clsss="row">
     <div class="col-12 my-2">
-      <div>
-        <div class="p-2 m-1">
+      <div class="text-center">
+        <div class="post-background-color border p-2 m-1">
           <div class="py-1">
             <%= link_to user_path(@user) do %>
               <%= attachment_image_tag @user, :image, :fill, 50, 50, fallback: "no_image.jpg", class: "img" %>
@@ -10,7 +10,7 @@
             <%= @user.name %>
           </div>
           <div class="py-1">
-            <%= attachment_image_tag(@post, :image, :fill, 300, 300, fallback: "no-image.jpg")%>
+            <%= attachment_image_tag(@post, :image, :fill, 500, 500, fallback: "no-image.jpg")%>
           </div>
           <div class="py-1">
             <%= @post.introduction %>
