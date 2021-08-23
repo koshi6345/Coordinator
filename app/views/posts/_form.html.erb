@@ -1,6 +1,16 @@
-<%= form_with model:posts, local: true do |f| %>
-  <%= f.attachment_field :image %>
-  <%= f.text_area :introduction %>
-  <%= f.text_field :names, placeholder: ",で区切ってください" %>
-  <%= f.submit %>
-<% end %>
+<div>
+  <%= form_with model:posts, local: true do |f| %>
+    <div class="py-2">
+      <%= f.attachment_field :image %>
+    </div>
+    <div class="py-2">
+      <%= f.text_area :introduction %>
+    </div>
+    <div class="py-2">
+      <%= f.text_field :names, placeholder: ",で区切ってください" %>
+    </div>
+    <div class="py-2">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>
