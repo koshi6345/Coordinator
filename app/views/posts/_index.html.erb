@@ -1,0 +1,33 @@
+<div class="index-flex">
+  <% posts.each do |post_one| %>
+    <div class="post-background-color border p-2 m-1">
+      <div class="py-2">
+        <%= link_to user_path(post_one.user) do %>
+          <%= attachment_image_tag post_one.user, :image, :fill, 100, 100, fallback: "no_image.jpg", class: "img" %>
+        <% end %>
+        <%= post_one.user.name %>
+      </div>
+      <div class="py-2">
+        <%= link_to post_path(post_one) do %>
+          <%= attachment_image_tag(post_one, :image, :fill, 300, 300, fallback: "no_image.jpg") %>
+        <% end %>
+      </div>
+      <div class="py-2">
+       <%= post_one.introduction %>
+      </div>
+      <div class="py-2">
+        <% post_one.tags.each do |tag| %>
+          #<%= tag.name %>
+        <% end %>
+      </div>
+      <div class="py-2">
+        <%= link_to "#{post_one.comments.count} コメント", post_path(post_one.id) %>
+        <%= link_to "#{post_one.favorits.count} いいね", post_path(post_one.id) %>
+      </div>
+      <div class="py-2">
+        <%= post_one.impressionist_count %> 閲覧
+      </div>
+    </div>
+  <% end %>
+</div>
+<%= paginate posts %>

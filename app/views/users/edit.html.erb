@@ -1,0 +1,20 @@
+<div class="container">
+  <div clsss="row">
+    <div class="col-12 my-2">
+      <%= form_with model:@user, local:true do |f| %>
+        <div class="py-2">
+          プロフィール画像: <%= f.attachment_field :image %>
+        </div>
+        <div class="py-2">
+          名前: <%= f.text_field :name %>
+        </div>
+        <div class="py-2">
+          自己紹介文: <%= f.text_area :introduction %>
+        </div>
+        <div class="py-2">
+          <%= f.submit %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
