@@ -11,6 +11,18 @@
         自己紹介文: <%= @user.introduction %>
       </div>
       <div class="py-2">
+        フォロー：
+        <%= link_to followeds_path do %>
+          <%= @user.follower_user.count %>
+        <% end %>
+      </div>
+      <div class="py-2">
+        フォロワー：
+        <%= link_to followers_path do %>
+          <%= @user.following_user.count %>
+        <% end %>
+      </div>
+      <div class="py-2">
         <% if user_signed_in? %>
           <% if @user == current_user %>
             <%= link_to "プロフィール編集", edit_user_path %>
