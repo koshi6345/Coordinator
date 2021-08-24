@@ -1,6 +1,12 @@
 <div class="container">
   <div clsss="row my-3">
     <div class="col-12 my-2">
+      <div class="py-2">
+        <%= form_with model: @post, url: sort_path, method: :get, local: true do |f| %>
+          <%= f.select :keyword, [['新しい投稿順', 'new'], ['古い投稿順', 'old'], ['いいね数が多い順', 'like'], ['いいね数が少ない順', 'dislike'], ['閲覧数が多い順', 'view'], ['閲覧数が少ない順', 'not_view']]%>
+          <%= f.submit %>
+        <% end %>
+      </div>
       <%= render 'index', posts: @posts %>
     </div>
   </div>
