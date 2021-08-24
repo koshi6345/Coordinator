@@ -25,11 +25,11 @@
       <div class="py-2">
         <% if user_signed_in? %>
           <% if @user == current_user %>
-            <%= link_to "プロフィール編集", edit_user_path %>
+            <%= link_to "プロフィール編集", edit_user_path, class: "btn btn-success" %>
           <% elsif current_user.following?(@user) %>
-            <%= link_to 'フォロー外す', user_relationships_path(@user), method: :delete %>
+            <%= link_to 'フォロー外す', user_relationships_path(@user), method: :delete, class: "btn btn-danger" %>
           <% else %>
-            <%= link_to 'フォロー', user_relationships_path(@user), method: :post %>
+            <%= link_to 'フォロー', user_relationships_path(@user), method: :post, class: "btn btn-primary" %>
           <% end %>
         <% end %>
       </div>
@@ -38,7 +38,7 @@
           <% unless @user.id == current_user.id %>
             <% if (current_user.following? @user) && (@user.following? current_user) %>
               <% if @room == true %>
-                <%= link_to "チャットへ", room_path(@room_id) %>
+                <%= link_to "チャットへ", room_path(@room_id), class: "btn btn-primary" %>
               <% else %>
                 <%= form_with model:@room_new do |f| %>
                   <%= fields_for @entrie do |e| %>
