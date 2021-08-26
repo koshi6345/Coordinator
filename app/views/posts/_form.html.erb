@@ -1,13 +1,14 @@
+<%= render 'layouts/error_messages', model: new_post %>
 <div>
-  <%= form_with model:posts, local: true do |f| %>
+  <%= form_with model:new_post, local: true do |f| %>
     <div class="py-2">
-      <%= f.attachment_field :image %>
+      投稿画像: <%= f.attachment_field :image %>
     </div>
     <div class="py-2">
-      <%= f.text_area :introduction %>
+      投稿文: <%= f.text_area :introduction %>
     </div>
     <div class="py-2">
-      <%= f.text_field :names, placeholder: ",で区切ってください" %>
+      タグ: <%= f.text_field :names, placeholder: ",で区切ってください" %>
     </div>
     <div class="py-2">
       <%= f.submit %>
