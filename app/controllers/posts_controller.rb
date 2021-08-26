@@ -47,6 +47,7 @@ class PostsController < ApplicationController
   def sort
     selection = params[:keyword]
     @posts = Kaminari.paginate_array(Post.sort(selection)).page(params[:page])
+    @value = params[:keyword]
   end
 
   private
