@@ -5,10 +5,10 @@
       投稿画像: <%= f.attachment_field :image %>
     </div>
     <div class="py-2">
-      投稿文: <%= f.text_area :introduction %>
+      投稿文: <%= f.text_area :introduction, value: new_post.introduction, size: "30x8" %>
     </div>
     <div class="py-2">
-      タグ: <%= f.text_field :names, placeholder: ",で区切ってください" %>
+      タグ: <%= f.text_field :names, placeholder: ",で区切ってください", size: "40x10" %>
     </div>
     <div class="py-2">
       <%= f.submit %>
