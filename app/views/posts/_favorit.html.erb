@@ -1,0 +1,15 @@
+<% if user_signed_in? %>
+  <% if post_one.favorited_by?(current_user) %>
+    <div class="py-1">
+      <%= link_to post_favorits_path(post_one), method: :delete, remote: true do %>
+        ♥<%= post_one.favorits.count %> いいね
+      <% end %>
+    </div>
+    <% else %>
+    <div class="py-1">
+      <%= link_to post_favorits_path(post_one), method: :post, remote: true do %>
+        ♡<%= post_one.favorits.count %> いいね
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
