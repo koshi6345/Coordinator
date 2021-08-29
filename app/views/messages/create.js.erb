@@ -1,0 +1,2 @@
+$('#message').html("<%= j(render 'rooms/message', entries: @entries, messages: @messages, message_new: @message, room: @room) %>")
+$("#message_text").val('')
