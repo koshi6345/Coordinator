@@ -1,34 +1,8 @@
 <div class="container">
   <div clsss="row">
     <div class="col-12 my-2">
-      <% @entries.each do |entrie| %>
-        <div class="py-1">
-          <%= attachment_image_tag entrie.user, :image, :fill, 50, 50, fallback: "no_image.jpg", class: "img" %>
-          <%= entrie.user.name %>
-        </div>
-      <% end %>
-      <hr>
-      <div class="chats">
-        <div class="chat">
-          <% if @messages.present? %>
-            <% @messages.each do |message| %>
-              <div class="py-1">
-                <%= message.user.name %>
-                <div class="chat-hukidashi"> <strong><%= message.text %></strong> <br>
-                  <%= message.created_at.strftime("%Y-%m-%d %H:%M")%>
-                </div>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
-        <div class="py-1">
-          <%= form_with model:@message do |f| %>
-            <%= f.text_field :text, placeholder: "メッセージを入力して下さい" , size: 70, class:"form-text-field" %>
-            <%= f.hidden_field :user_id, value: current_user.id %>
-            <%= f.hidden_field :room_id, value: @room.id %>
-            <%= f.submit "投稿",class: 'form-submit'%>
-          <% end %>
-        </div>
+      <div id="message">
+        <%= render 'rooms/message', entries: @entries, messages: @messages, message_new: @message, room: @room %>
       </div>
     </div>
   </div>
