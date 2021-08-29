@@ -3,11 +3,15 @@ class MessagesController < ApplicationController
 
   def create
     if Entry.where(user_id: current_user.id, room_id: params[:message][:room_id]).present?
-      @message = Message.create(message_params)
+      if @message = Message.create(message_params)
+      else
+        render 'room'
+      end
     end
     @room = @message.room
     @entries = @room.entries
     @messages = @room.messages
+    @message = Message.new
   end
 
   private

@@ -12,6 +12,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = Comment.find_by(id: params[:id], post_id: params[:post_id])
     @comment.destroy
+    @comment = Comment.new
   end
 
   private
