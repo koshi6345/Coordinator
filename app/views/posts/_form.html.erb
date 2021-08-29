@@ -1,6 +1,6 @@
 <%= render 'layouts/error_messages', model: new_post %>
 <div>
-  <%= form_with model:new_post, local: true do |f| %>
+  <%= form_with model: new_post, url: posts_path, local: true do |f| %>
     <div class="py-2">
       投稿画像: <%= f.attachment_field :image %>
     </div>

@@ -13,6 +13,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     tag_list = params[:post][:names].split(",")
     @post.user_id = current_user.id
+    # binding.pry
     if @post.save
       @post.tags_save(tag_list)
       redirect_to root_path
