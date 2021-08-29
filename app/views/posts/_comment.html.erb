@@ -1,0 +1,24 @@
+<div class="py-1">
+  <%= post_one.comments.count %> 件のコメント
+</div>
+<% post_one.comments.each do |post_comment| %>
+  <div class="py-1">
+    <%= post_comment.user.name %>
+  </div>
+  <div class="py-1">
+    <%= post_comment.comment %>
+    <% if post_comment.user == current_user %>
+      <%= link_to "削除", post_comment_path(post_one, post_comment), method: :delete, remote: true , class: "btn btn-danger btn-sm" %>
+    <% end %>
+  </div>
+<% end %>
+<% if user_signed_in? %>
+  <%= form_with(model:[post_one, comment_one]) do |f| %>
+    <div class="py-1">
+      <%= f.text_field :comment, rows:'5',placeholder: "コメントをここに" %>
+    </div>
+    <div class="py-1">
+      <%= f.submit "送信する" %>
+    </div>
+  <% end %>
+<% end %>

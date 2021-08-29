@@ -13,9 +13,12 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     tag_list = params[:post][:names].split(",")
     @post.user_id = current_user.id
-    @post.save
-    @post.tags_save(tag_list)
-    redirect_to root_path
+    if @post.save
+      @post.tags_save(tag_list)
+      redirect_to root_path
+    else
+      render 'new'
+    end
   end
 
   def show
@@ -31,7 +34,9 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
+    tag_list = params[:post][:names].split(",")
     @post.update(post_params)
+    @post.tags_save(tag_list)
     redirect_to root_path
   end
 
@@ -44,7 +49,7 @@ class PostsController < ApplicationController
   def sort
     selection = params[:keyword]
     @posts = Kaminari.paginate_array(Post.sort(selection)).page(params[:page])
-    # binding.pry
+    @value = params[:keyword]
   end
 
   private

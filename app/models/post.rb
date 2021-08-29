@@ -6,6 +6,9 @@ class Post < ApplicationRecord
   has_many :tag_relationships
   has_many :tags, through: :tag_relationships
 
+  validates :introduction, presence: true
+  validates :image, presence: true
+
   def favorited_by?(user)
     favorits.where(user_id: user.id).exists?
   end

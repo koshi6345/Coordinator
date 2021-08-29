@@ -71,6 +71,7 @@ gem "refile-mini_magick"
 gem 'dotenv-rails'
 gem 'impressionist', '~> 1.6.1'
 gem 'pry-byebug'
+gem 'rails-i18n'
 group :production do
   gem 'mysql2'
 end
