@@ -53,7 +53,10 @@
       </div>
       <% if user_signed_in? && current_user == @user %>
         <%= link_to new_post_path do %>
-          <div class="fas fa-plus h4 plus-botton"></div>
+          <div class="fas fa-plus plus-botton h4"></div>
+        <% end %>
+        <%= link_to notifications_path do %>
+          <div class="fas fa-exclamation h4"></div>
         <% end %>
       <% end %>
       <%= render "posts/index", posts: @posts %>

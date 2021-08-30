@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'notifications/index'
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users,        except:   [:new, :create] do
@@ -16,4 +17,5 @@ Rails.application.routes.draw do
   resources :messages,      only:   [:create]
   get 'followeds/:id' => 'users#followeds', as: 'followeds'
   get 'followers/:id' => 'users#followers', as: 'followers'
+  resources :notifications, only:   [:index, :update]
 end
