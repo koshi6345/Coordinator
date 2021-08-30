@@ -42,5 +42,20 @@ li {
 
 
 .post-background-color {
- background-color: #EEEEEE;
+  background-color: #EEEEEE;
+}
+
+.img_wrap {
+  transition-duration: 0.5s;
+}
+
+.img_pointer {
+  width: 100%;
+  cursor: pointer;
+}
+
+.img_wrap:hover{
+  box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
+  transform: translateY(-10px);
+  transition-duration: 0.5s;
 }

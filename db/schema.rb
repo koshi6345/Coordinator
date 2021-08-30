@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_20_112136) do
+ActiveRecord::Schema.define(version: 2021_08_29_124723) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -64,6 +64,17 @@ ActiveRecord::Schema.define(version: 2021_08_20_112136) do
     t.integer "user_id", null: false
     t.integer "room_id", null: false
     t.string "text", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer "visitor_id"
+    t.integer "visited_id"
+    t.integer "room_id"
+    t.integer "message_id"
+    t.string "action"
+    t.boolean "checked", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,3 +1,28 @@
 // Place all the styles related to the Rooms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.chats {
+  background-color: #CCFFFF;
+  padding: 10px;
+}
+
+.current_user {
+  text-align: right;
+  color: white;
+  background-color: #008080;
+  width: fit-content;
+  margin: 10px 0 0 auto;
+  border-radius: 30px;
+  padding: 10px;
+}
+
+.another_user {
+  text-align: left;
+  color: #008080;
+  background-color: white;
+  width: fit-content;
+  margin: 10px auto 0 0;
+  border-radius: 30px;
+  padding: 10px;
+}

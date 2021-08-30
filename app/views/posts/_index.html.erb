@@ -7,9 +7,9 @@
         <% end %>
         <%= post_one.user.name %>
       </div>
-      <div class="py-2">
+      <div class="py-2 img_wrap">
         <%= link_to post_path(post_one) do %>
-          <%= attachment_image_tag(post_one, :image, :fill, 300, 300, fallback: "no_image.jpg") %>
+          <%= attachment_image_tag post_one, :image, :fill, 300, 300, fallback: "no_image.jpg", class: "img_pointer" %>
         <% end %>
       </div>
       <div class="py-2">
