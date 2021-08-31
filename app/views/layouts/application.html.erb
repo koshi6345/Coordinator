@@ -11,9 +11,11 @@
 
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav class="background navbar navbar-expand-lg navbar-dark">
         <div class="container">
-          <div class="h1 text-light my-auto">Coordinator</div>
+          <%= link_to root_path do %>
+            <%= image_tag 'logo_origin.png', :size => '200x200' %>
+          <% end %>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -56,7 +58,7 @@
     </header>
     <%= yield %>
     <footer>
-      <nav class="navbar navbar-dark bg-dark">
+      <nav class="background navbar navbar-dark">
         <div class="text-light mx-auto">koushikoushikoushi</div>
       </nav>
     </footer>
