@@ -21,8 +21,10 @@
         <% end %>
       </div>
       <div class="py-2">
-        <%= link_to "#{post_one.comments.count} コメント", post_path(post_one.id) %>
-        <%= link_to "#{post_one.favorits.count} いいね", post_path(post_one.id) %>
+        <%= post_one.comments.count %>コメント
+        <div id="favorit_buttons_<%= post_one.id %>">
+          <%= render 'posts/favorit', post_one: post_one %>
+        </div>
       </div>
       <div class="py-2">
         <%= post_one.impressionist_count %> 閲覧
