@@ -53,10 +53,10 @@
       </div>
       <% if user_signed_in? && current_user == @user %>
         <%= link_to new_post_path do %>
-          <div class="fas fa-plus plus-botton pr-2">新規投稿</div>
+          <div class="fas fa-plus plus-botton pr-2"> 新規投稿</div>
         <% end %>
         <%= link_to notifications_path do %>
-          <div class="fas fa-exclamation pl-2">通知一覧</div>
+          <div class="fas fa-exclamation pl-2"> 通知一覧</div>
         <% end %>
       <% end %>
       <%= render "posts/index", posts: @posts %>

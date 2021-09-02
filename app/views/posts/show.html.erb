@@ -26,10 +26,8 @@
               <%= link_to "投稿削除", post_path(@post), method: :delete, class: "btn btn-danger btn-sm" %>
             <% end %>
           </div>
-          <div class="py-1">
-            <div id="favorit_buttons_<%= @post.id %>">
-              <%= render 'posts/favorit', post_one: @post %>
-            </div>
+          <div id="favorit_buttons_<%= @post.id %>">
+            <%= render 'posts/favorit', post_one: @post %>
           </div>
           <div id="comment_index">
             <%= render 'posts/comment', post_one: @post, comment_one: @comment %>
