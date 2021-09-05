@@ -12,13 +12,13 @@
       </div>
       <div class="py-2">
         フォロー：
-        <%= link_to followeds_path do %>
+        <%= link_to followeds_path, class:"no-underline" do %>
           <%= @user.follower_user.count %>
         <% end %>
       </div>
       <div class="py-2">
         フォロワー：
-        <%= link_to followers_path do %>
+        <%= link_to followers_path, class:"no-underline" do %>
           <%= @user.following_user.count %>
         <% end %>
       </div>
@@ -52,11 +52,11 @@
         <% end %>
       </div>
       <% if user_signed_in? && current_user == @user %>
-        <%= link_to new_post_path do %>
-          <div class="fas fa-plus plus-botton pr-2">新規投稿</div>
+        <%= link_to new_post_path, class:"no-underline" do %>
+          <div class="fas fa-plus plus-botton pr-2 btn btn-primary btn-sm"> 新規投稿</div>
         <% end %>
-        <%= link_to notifications_path do %>
-          <div class="fas fa-exclamation pl-2">通知一覧</div>
+        <%= link_to notifications_path, class:"no-underline" do %>
+          <div class="fas fa-exclamation pl-2 btn btn-warning btn-sm"> 通知一覧</div>
         <% end %>
       <% end %>
       <%= render "posts/index", posts: @posts %>
