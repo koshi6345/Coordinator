@@ -72,6 +72,7 @@ gem 'dotenv-rails'
 gem 'impressionist', '~> 1.6.1'
 gem 'pry-byebug'
 gem 'rails-i18n'
+gem 'rmagick'
 group :production do
   gem 'mysql2'
 end
