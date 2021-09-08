@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   resources :users,        except:   [:new, :create] do
     resource :relationships, only:   [:create, :destroy]
   end
-  root to: 'posts#index'
+  root to: 'homes#top'
+  get 'about' => 'homes#about'
   get 'sort' => 'posts#sort'
-  resources :posts,         except:   [:index] do
+  resources :posts do
     resources :comments,      only:   [:create, :destroy]
     resource  :favorits,      only:   [:create, :destroy]
   end

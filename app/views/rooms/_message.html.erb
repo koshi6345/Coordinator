@@ -1,6 +1,6 @@
 <% entries.each do |entry| %>
   <div class="py-1">
-    <%= link_to user_path(entry.user) do %>
+    <%= link_to user_path(entry.user), class:"no-underline" do %>
       <%= attachment_image_tag entry.user, :image, :fill, 50, 50, fallback: "no_image.jpg", class: "img" %>
     <% end %>
     <%= entry.user.name %>
