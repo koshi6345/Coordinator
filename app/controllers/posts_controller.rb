@@ -15,7 +15,7 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
     if @post.save
       @post.tags_save(tag_list)
-      redirect_to root_path
+      redirect_to posts_path
     else
       render 'new'
     end
@@ -37,13 +37,13 @@ class PostsController < ApplicationController
     tag_list = params[:post][:names].split(",")
     @post.update(post_params)
     @post.tags_save(tag_list)
-    redirect_to root_path
+    redirect_to posts_path
   end
 
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to root_path
+    redirect_to posts_path
   end
 
   def sort
