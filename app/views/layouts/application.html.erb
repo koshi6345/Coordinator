@@ -11,7 +11,7 @@
 
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <%= link_to root_path, class:"no-underline" do %>
           <div class="navbar-brand h1 my-auto">COORDINATOR</div>
         <% end %>
@@ -22,31 +22,31 @@
          <% if user_signed_in? %>
     　      <ul class="navbar-nav mr-auto">
     　        <li class="nav-item">
-                <%= link_to "マイページ", user_path(current_user),class: 'fas fa-user nav-link text-dark' %>
+                <%= link_to "マイページ", user_path(current_user),class: 'fas fa-user nav-link text-light' %>
               </li>
               <li class="nav-item">
-                <%= link_to "ユーザー一覧", users_path,class: 'fas fa-users nav-link text-dark' %>
+                <%= link_to "ユーザー一覧", users_path,class: 'fas fa-users nav-link text-light' %>
               </li>
               <li class="nav-item">
-                <%= link_to "投稿一覧", posts_path,class: 'fas fa-paste nav-link text-dark' %>
+                <%= link_to "投稿一覧", posts_path,class: 'fas fa-paste nav-link text-light' %>
               </li>
               <li class="nav-item">
-                <%= link_to "ログアウト", destroy_user_session_path, method: :delete,class: 'fas fa-sign-out-alt nav-link text-dark' %>
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete,class: 'fas fa-sign-out-alt nav-link text-light' %>
               </li>
     　      </ul>
           <% else %>
             <ul class="navbar-nav mr-auto">
               <li class="nav-item">
-                <%= link_to "新規登録", new_user_registration_path,class: 'fas fa-user-plus nav-link text-dark' %>
+                <%= link_to "新規登録", new_user_registration_path,class: 'fas fa-user-plus nav-link text-light' %>
               </li>
               <li class="nav-item">
-                <%= link_to "ログイン", new_user_session_path,class: 'fas fa-sign-in-alt nav-link text-dark' %>
+                <%= link_to "ログイン", new_user_session_path,class: 'fas fa-sign-in-alt nav-link text-light' %>
               </li>
               <li class="nav-item">
-                <%= link_to "サイト概要", about_path,class: 'fas fa-users nav-link text-dark' %>
+                <%= link_to "サイト概要", about_path,class: 'fas fa-users nav-link text-light' %>
               </li>
               <li class="nav-item">
-                <%= link_to "投稿一覧", posts_path,class: 'fas fa-paste nav-link text-dark' %>
+                <%= link_to "投稿一覧", posts_path,class: 'fas fa-paste nav-link text-light' %>
               </li>
             </ul>
           <% end %>
