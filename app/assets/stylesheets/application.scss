@@ -69,3 +69,13 @@ li {
 .no-underline:hover {
   text-decoration: none;
 }
+
+.break-word-index {
+  width: 300px;
+  overflow-wrap: break-word;
+}
+
+.break-word-show {
+  width: 500px;
+  overflow-wrap: break-word;
+}
