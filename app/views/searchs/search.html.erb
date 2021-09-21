@@ -52,8 +52,8 @@
                     <%= attachment_image_tag tag_post, :image, :fill, 300, 300, fallback: "no_image.jpg", class: "img_pointer" %>
                   <% end %>
                 </div>
-                <div class="py-1">
-                  <%= tag_post.introduction %>
+                <div class="py-1 break-word-index">
+                  <%= tag_post.introduction.truncate(18) %>
                 </div>
                 <div class="py-1">
                   <% tag_post.tags.each do |tag_post_tag| %>
