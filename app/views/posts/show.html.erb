@@ -1,40 +1,38 @@
 <div class="container">
   <div clsss="row">
     <div class="col-12 my-2">
-      <div class="text-center">
-        <div class="post-background-color border p-2 m-1">
-          <div class="py-1">
-            <%= link_to user_path(@user) do %>
-              <%= attachment_image_tag @user, :image, :fill, 50, 50, fallback: "no_image.jpg", class: "img" %>
-            <% end %>
-            <%= @user.name %>
-          </div>
-          <div class="py-1">
-            <%= attachment_image_tag(@post, :image, :fill, 500, 500, fallback: "no_image.jpg")%>
-          </div>
-          <div class="py-1 break-word-show mx-auto">
-            <%= @post.introduction %>
-          </div>
-          <div class="py-1">
-            <% @post.tags.each do |tag| %>
-              #<%= tag.name %>
-            <% end %>
-          </div>
-          <div class="py-1">
-            <% if @post.user == current_user %>
-              <%= link_to "編集する", edit_post_path(@post), class: "btn btn-success btn-sm" %>
-              <%= link_to "投稿削除", post_path(@post), method: :delete, class: "btn btn-danger btn-sm" %>
-            <% end %>
-          </div>
-          <div id="favorit_buttons_<%= @post.id %>">
-            <%= render 'posts/favorit', post_one: @post %>
-          </div>
-          <div id="comment_index">
-            <%= render 'posts/comment', post_one: @post, comment_one: @comment %>
-          </div>
-          <div class="py-1">
-            <%= @post.impressionist_count %> 閲覧
-          </div>
+      <div class="post-background-color border p-2 m-1">
+        <div class="py-1">
+          <%= link_to user_path(@user) do %>
+            <%= attachment_image_tag @user, :image, :fill, 100, 100, fallback: "no_image.jpg", class: "img_icon" %>
+          <% end %>
+          <%= @user.name %>
+        </div>
+        <div class="py-1">
+          <%= attachment_image_tag @post, :image, :fill, 300, 300, fallback: "no_image.jpg", class: "img_pointer" %>
+        </div>
+        <div class="py-1 break-word-show mx-auto">
+          <%= @post.introduction %>
+        </div>
+        <div class="py-1">
+          <% @post.tags.each do |tag| %>
+            #<%= tag.name %>
+          <% end %>
+        </div>
+        <div class="py-1">
+          <% if @post.user == current_user %>
+            <%= link_to "編集する", edit_post_path(@post), class: "btn btn-success btn-sm" %>
+            <%= link_to "投稿削除", post_path(@post), method: :delete, class: "btn btn-danger btn-sm" %>
+          <% end %>
+        </div>
+        <div id="favorit_buttons_<%= @post.id %>">
+          <%= render 'posts/favorit', post_one: @post %>
+        </div>
+        <div id="comment_index">
+          <%= render 'posts/comment', post_one: @post, comment_one: @comment %>
+        </div>
+        <div class="py-1">
+          <%= @post.impressionist_count %> 閲覧
         </div>
       </div>
     </div>
