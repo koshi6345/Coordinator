@@ -1,7 +1,7 @@
 <% entries.each do |entry| %>
   <div class="py-1">
     <%= link_to user_path(entry.user), class:"no-underline" do %>
-      <%= attachment_image_tag entry.user, :image, :fill, 50, 50, fallback: "no_image.jpg", class: "img" %>
+      <%= attachment_image_tag entry.user, :image, :fill, 50, 50, fallback: "no_image.jpg", class: "img_icon" %>
     <% end %>
     <%= entry.user.name %>
   </div>
