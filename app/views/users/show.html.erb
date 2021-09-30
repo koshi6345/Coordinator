@@ -2,7 +2,7 @@
   <div clsss="row">
     <div class="col-12 my-2">
       <div class="py-2">
-        プロフィール画像: <%= attachment_image_tag @user, :image, :fill, 100, 100, fallback: "no_image.jpg", class: "img" %>
+        プロフィール画像: <%= attachment_image_tag @user, :image, :fill, 100, 100, fallback: "no_image.jpg", class: "img_icon" %>
       </div>
       <div class="py-2">
         名前: <%= @user.name %>
